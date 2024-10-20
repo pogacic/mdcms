@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { SideNav } from "./components/SideNav"
 import { MainViewer } from "./components/MainViewer"
-import { IDirNode } from "./components/Types"
+import { IDirNode } from "./types/common"
 
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
     if (location.pathname != "/") {
       setUrlPath(location.pathname)
     }
+    document.title = import.meta.env.VITE_SITE_NAME
   }, [])
 
   function handleNavChange(path: string) {
