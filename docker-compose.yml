@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  backend-api:
+    environment:
+      # Change this to wherever you are serving the webui e.g https://pogacic.com
+      - CORS_ORIGIN=http://localhost:3030
+    build: ./backend
+    volumes:
+      # Change /opt/ dir to wherever your markdown files are
+      - /opt/mdcms_content:/mdcms_content
+    ports:
+      - "8090:8090"
+    restart: unless-stopped
+
+  frontend-ui:
+    build: ./webui
+    depends_on:
+      - backend-api
+    ports:
+      - "3030:80"
+    restart: unless-stopped
