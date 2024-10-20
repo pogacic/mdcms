@@ -3,7 +3,10 @@ import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 
 import '../assets/highlight.css'
-import { IMainViewerProps } from './Types'
+
+interface IMainViewerProps {
+    content: string
+}
 
 export function MainViewer({content}: IMainViewerProps) {
     return (

@@ -13,7 +13,6 @@ type DirNode struct {
 	ID           int    `json:"id"`
 	Name         string `json:"name"`
 	ChildIDs     []int  `json:"childIds"`
-	IsDir        bool   `json:"isDir"`
 	PathFromRoot string `json:"pathFromRoot"`
 }
 
@@ -39,7 +38,6 @@ func createRootNode(nodes map[int]*DirNode, rootDirF []int) {
 		ID:       0,
 		Name:     "/",
 		ChildIDs: []int{},
-		IsDir:    true,
 	}
 	nodes[0] = rootNode
 	for _, id := range rootDirF {
@@ -70,7 +68,6 @@ func GetFlattenedDir(fpath string) ([]byte, error) {
 				ID:           currentID,
 				Name:         info.Name(),
 				ChildIDs:     []int{},
-				IsDir:        isDir,
 				PathFromRoot: pathFromRoot,
 			}
 			nodes[currentID] = node
@@ -93,7 +90,6 @@ func GetFlattenedDir(fpath string) ([]byte, error) {
 			ID:           currentID,
 			Name:         info.Name(),
 			ChildIDs:     []int{},
-			IsDir:        isDir,
 			PathFromRoot: pathFromRoot,
 		}
 		nodes[currentID] = node

@@ -1,4 +1,4 @@
-# mdcms v0.0.1
+# mdcms v0.0.2
 
 SPA markdown viewer.
 

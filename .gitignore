@@ -1,2 +1,3 @@
 mdcms_content/
 *.tsbuildinfo
+.vite
